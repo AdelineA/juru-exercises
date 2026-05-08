@@ -1,0 +1,138 @@
+/* ===========================
+   CSS Variables
+   =========================== */
+:root {
+  --color-bg: #ffffff;
+  --color-heading: #222222;
+  --color-subtext: #8a8a8a;
+  --color-label: #222222;
+  --card-radius: 16px;
+  --font-display: "Playfair Display", serif;
+  --font-body: "Lato", sans-serif;
+  --gap: 28px;
+  --section-padding: 80px 40px;
+}
+
+/* ===========================
+   Reset & Base
+   =========================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-bg);
+  font-family: var(--font-body);
+  color: var(--color-heading);
+}
+
+/* ===========================
+   Section
+   =========================== */
+.browse-section {
+  padding: var(--section-padding);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===========================
+   Header
+   =========================== */
+.browse-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.browse-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.browse-header p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-subtext);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ===========================
+   CSS Grid Layout
+   =========================== */
+.browse-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+/* ===========================
+   Cards
+   =========================== */
+.browse-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.card-image {
+  width: 100%;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background-color: #f0ede8;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.browse-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+/* ===========================
+   Card Label
+   =========================== */
+.card-label {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-label);
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 768px) {
+  .browse-grid {
+    grid-template-columns: 3fr;
+    gap: 36px;
+  }
+
+  .browse-section {
+    padding: 48px 20px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .browse-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
